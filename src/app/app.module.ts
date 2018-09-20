@@ -13,7 +13,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent,
   ],
   imports: [
-    // AppRoutingModule,
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
