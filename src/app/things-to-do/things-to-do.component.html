@@ -1,17 +1,20 @@
+<div class="mx-3 home">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-6 col-md-4" *ngFor="let activity of thingsToDo">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          {{ activity.title }}
-        </div>
-        <img class="card-img-top" src="{{ activity.image }}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ activity.subtitle }}</h5>
-          <p class="card-text" [innerHTML]="activity.description"></p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 my-3" *ngFor="let card of cards">
+        <div class="card">
+          <div class="card-header">
+            {{ card.title }}
+          </div>
+          <img class="card-img-top" src="{{ card.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="card.subtitle">{{ card.subtitle }}</h5>
+            <p class="card-text" [innerHTML]="card.description"></p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

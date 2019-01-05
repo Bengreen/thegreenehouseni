@@ -12,7 +12,7 @@ export class ThingsToDoComponent implements OnInit {
   ngOnInit() {
   }
 
-  thingsToDo=[
+  cards=[
     {
       title: "Walk Ballykelly Bank",
       subtitle: "",

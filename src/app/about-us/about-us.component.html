@@ -1,25 +1,22 @@
-<p>
-  about-us works!
-</p>
+<div class="mx-3 home">
+  
+  <H2>Our Rooms</H2>
+  Each room has a theme related to the local environment and wildlife.
 
-
-<H2>Our Rooms</H2>
-Each room has a theme related to the local environment and wildlife.
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <img src="assets/images/image_thmb.png">
-      <div class="roomcaption">
-        <div class="roomname">One of three columns</div>
-        <div class="roomdescription">A lovely room</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 my-3" *ngFor="let card of cards">
+        <div class="card">
+          <div class="card-header">
+            {{ card.title }}
+          </div>
+          <img class="card-img-top" src="{{ card.image }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="card.subtitle">{{ card.subtitle }}</h5>
+            <p class="card-text" [innerHTML]="card.description"></p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
     </div>
   </div>
 </div>
