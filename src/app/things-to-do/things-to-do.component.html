@@ -7,7 +7,7 @@
           <div class="card-header">
             {{ card.title }}
           </div>
-          <img class="card-img-top" src="{{ card.image }}" alt="Card image cap">
+          <img class="card-img-top" src="{{ card.image }}" alt="Card image cap" *ngIf="card.image">
           <div class="card-body">
             <h5 class="card-title" *ngIf="card.subtitle">{{ card.subtitle }}</h5>
             <p class="card-text" [innerHTML]="card.description"></p>
