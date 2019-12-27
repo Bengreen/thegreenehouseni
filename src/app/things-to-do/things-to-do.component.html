@@ -1,3 +1,17 @@
-<p>
-  things-to-do works!
-</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let activity of thingsToDo">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          {{ activity.title }}
+        </div>
+        <img class="card-img-top" src="{{ activity.image }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ activity.subtitle }}</h5>
+          <p class="card-text" [innerHTML]="activity.description"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
