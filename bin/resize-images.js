@@ -1,11 +1,22 @@
 #!/usr/bin/env node
 
+const [,, ... args] = process.argv
+
+
+if (args.length != 2) {
+  console.log("Uage error, must provide: <src> <dst>")
+  process.exit(1)
+}
+
+console.log(`src: ${args[0]}`)
+console.log(`dst: ${args[1]}`)
+
 var fs = require('fs'),
   gm = require('gm');
 
 
-src_path="orig_images";
-dst_path="src/assets/images";
+src_path=args[0]
+dst_path=args[1]
 
 
 var files = fs.readdirSync(src_path)
@@ -34,6 +45,10 @@ function do_resize(src, dst, width) {
 resize.forEach((sizeplan) => {
   console.log("resize_plan=", sizeplan);
   console.log("Thumbing files:");
+  if (!fs.existsSync(dst_path)) {
+    fs.mkdirSync(dst_path);
+    console.log("making dir ", dst_path);
+  }
   files.forEach((file) => {
     console.log("  "+dst_path+"/"+sizeplan.prefix+file);
     do_resize(src_path+"/"+file, dst_path+"/"+sizeplan.prefix+file, sizeplan.width);

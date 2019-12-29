@@ -24,9 +24,10 @@ GIT_HASH:           $(GIT_HASH)
 GIT_DESCRIBE_MIN:   $(GIT_DESCRIBE_MIN)
 endef
 
+
+MOUNT_OBJS=src e2e proxy.conf.js bin package.json dist
+MOUNTS=$(foreach PATH,${MOUNT_OBJS},--mount type=bind,src=${CURDIR}/${PATH},dst=/app/${PATH})
 # This brings across dynamic things into the dev enviornment, leaving node_modules as installed from the prod environment
-MOUNTS=--mount type=bind,src=${CURDIR}/src,dst=/app/src --mount type=bind,src=${CURDIR}/e2e,dst=/app/e2e --mount type=bind,src=${CURDIR}/proxy.conf.js,dst=/app/proxy.conf.js
-# MOUNTS=--mount type=bind,src=${CURDIR},dst=/app --mount type=volume,dst=/app/node_modules
 
 status:
 	$(info $(STATUS))

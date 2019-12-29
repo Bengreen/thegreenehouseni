@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "resize-images": "./bin/resize-images.js orig_images src/assets/images",
     "hmr": "ng serve --configuration hmr",
     "build": "ng build",
     "build-prod": "ng build --prod",
@@ -49,5 +50,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "bin": {
+    "resize-images": "./bin/resize-images.js"
   }
 }
