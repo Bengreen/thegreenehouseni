@@ -26,7 +26,7 @@ COPY . /app
 
 
 FROM base as dev
-RUN apt-get install -y tmux locales-all less vim
+RUN apt-get install -y tmux locales-all less vim GraphicsMagick
 ENTRYPOINT [ "./entrypoint-dev.sh" ]
 EXPOSE 4200
 

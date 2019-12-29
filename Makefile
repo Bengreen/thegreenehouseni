@@ -24,8 +24,9 @@ GIT_HASH:           $(GIT_HASH)
 GIT_DESCRIBE_MIN:   $(GIT_DESCRIBE_MIN)
 endef
 
+# This brings across dynamic things into the dev enviornment, leaving node_modules as installed from the prod environment
 MOUNTS=--mount type=bind,src=${CURDIR}/src,dst=/app/src --mount type=bind,src=${CURDIR}/e2e,dst=/app/e2e --mount type=bind,src=${CURDIR}/proxy.conf.js,dst=/app/proxy.conf.js
-
+# MOUNTS=--mount type=bind,src=${CURDIR},dst=/app --mount type=volume,dst=/app/node_modules
 
 status:
 	$(info $(STATUS))
