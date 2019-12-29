@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "resize-images": "./bin/resize-images.js orig_images src/assets/images",
     "hmr": "ng serve --configuration hmr",
     "build": "ng build",
     "build-prod": "ng build --prod",
@@ -25,7 +26,9 @@
     "bootstrap": "^4.4.1",
     "ngx-bootstrap": "^5.2.0",
     "rxjs": "~6.4.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "gm": "^1.23.1",
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.21",
@@ -47,5 +50,8 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "bin": {
+    "resize-images": "./bin/resize-images.js"
   }
 }

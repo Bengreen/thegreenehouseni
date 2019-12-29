@@ -1,3 +1,20 @@
-<p>
-  Please contact us on +44 777x xxxx to book.
-</p>
+<div class="mx-3 home">
+  <h1>Book TheGreeneHouse now</h1>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 my-3" *ngFor="let card of cards">
+        <div class="card">
+          <div class="card-header">
+            {{ card.title }}
+          </div>
+          <img class="card-img-top" src="{{ card.image }}" alt="Card image cap" *ngIf="card.image">
+          <div class="card-body">
+            <h5 class="card-title" *ngIf="card.subtitle">{{ card.subtitle }}</h5>
+            <p class="card-text" [innerHTML]="card.description"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
