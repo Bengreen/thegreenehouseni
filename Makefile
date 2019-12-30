@@ -62,3 +62,13 @@ docker-dev-shell: $(if $(NOBUILD),,docker-dev)
 	docker container rm $(DEVBUILDIMAGE) || true
 	$(info consider to run : tmux new-session -d -s ng-test-session 'ng test';tmux split-window;tmux send 'ng serve' ENTER;tmux a)
 	docker run -it -p 4200:4200 $(MOUNTS) --name $(DEVBUILDIMAGE) $(DEVBUILDIMAGE) bash
+
+docker-build-prod: $(if $(NOBUILD),,docker-dev)
+	$(info $(NAME) Creating build in dist)
+	docker run -it $(MOUNTS) $(DEVBUILDIMAGE) npm run build-prod
+
+publish: $(if $(NOBUILD),,docker-build-prod)
+	$(info Publish to Google Storage)
+	gcloud config set project thegreenehouseni
+	gsutil -m rsync -r -d ./dist/mockclub/ gs://www.thegreenehouseni.co.uk/
+	gsutil -m rsync -r -d ./dist/mockclub/ gs://www.thegreenehouseni.com/
